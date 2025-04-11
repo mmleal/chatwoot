@@ -148,7 +148,7 @@ COPY --from=pre-builder /app /app
 COPY --from=pre-builder /app/.git_sha /app/.git_sha
 
 COPY config/storage.yml /app/config/storage.yml
-COPY config/initializers/99_active_storage_patch.rb /app/config/initializers/99_active_storage_patch.rb
+COPY config/initializers/active_storage_patch.rb /app/config/initializers/active_storage_patch.rb
 
 WORKDIR /app
 
