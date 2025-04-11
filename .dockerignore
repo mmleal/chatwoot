@@ -5,7 +5,7 @@ docker-compose.*
 docker/Dockerfile
 docker/dockerfiles
 log
-storage
+# storage
 public/system
 tmp
 .codeclimate.yml
