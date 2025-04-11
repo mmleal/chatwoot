@@ -150,6 +150,8 @@ COPY --from=pre-builder /app/.git_sha /app/.git_sha
 COPY config/storage.yml /app/config/storage.yml
 COPY config/initializers/active_storage_patch.rb /app/config/initializers/active_storage_patch.rb
 
+CMD ["sh", "-c", "bundle exec rails db:chatwoot_prepare && bundle exec rails s -p 3000 -b 0.0.0.0"]
+
 WORKDIR /app
 
 EXPOSE 3000
