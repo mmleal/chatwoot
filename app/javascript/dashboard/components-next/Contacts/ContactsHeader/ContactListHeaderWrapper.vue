@@ -62,13 +62,13 @@ const segmentsQuery = ref({});
 
 const appliedFilters = useMapGetter('contacts/getAppliedContactFiltersV4');
 const contactAttributes = useMapGetter('attributes/getContactAttributes');
+const labels = useMapGetter('labels/getLabels');
 const hasActiveSegments = computed(
   () => props.activeSegment && props.segmentsId !== 0
 );
 const activeSegmentName = computed(() => props.activeSegment?.name);
 
-const openCreateNewContactDialog = async () => {
-  await createNewContactDialogRef.value?.contactsFormRef.resetValidation();
+const openCreateNewContactDialog = () => {
   createNewContactDialogRef.value?.dialogRef.open();
 };
 const openContactImportDialog = () =>
@@ -215,6 +215,7 @@ const setParamsForEditSegmentModal = () => {
     countries,
     filterTypes: contactFilterItems,
     allCustomAttributes: useSnakeCase(contactAttributes.value),
+    labels: labels.value || [],
   };
 };
 
